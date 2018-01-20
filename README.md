@@ -19,3 +19,9 @@ You can also search for specific items using the Find option in the menu.
 Of course you can also save your complete inventory (otherwise it would be useless).
 
 And when you are ready, you can quit application.
+
+## Optional
+
+Depending on time/deication/knowledge/etc should also contain ranking of the most wealthy dragons for purpose of farokméregetés and might contain an assistang calculating the likelihood of adventuring parties appearing at one of your Storages to get your riches.
+
+Further improvements might contain administration overview of guardians and traps assigned to specific storages.
