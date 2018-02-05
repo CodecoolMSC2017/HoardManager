@@ -8,7 +8,7 @@ Hoard manager will help you to locate all your items at your various castles, du
 
 ## Design
 
-In this app you will be able to create new locations where you can put your hoarded items. Various dungeons, caves, treasure chests and kacsakábon forgó palota's can be created specifying their capacity.
+In this app you will be able to create new locations where you can put your hoarded items. Various dungeons, caves, treasure chests and kacsalábon forgó palota's can be created specifying their capacity.
 
 You will be also able to create the specific hoards specific to their subtypes. You will be able to create gems and coins and fancy artworks and magic items, etc., assign an estimaed value and size to them.
 
@@ -22,6 +22,6 @@ And when you are ready, you can quit application.
 
 ## Optional
 
-Depending on time/deication/knowledge/etc should also contain ranking of the most wealthy dragons for purpose of farokméregetés and might contain an assistang calculating the likelihood of adventuring parties appearing at one of your Storages to get your riches.
+Depending on time/deication/knowledge/etc should also contain ranking of the most wealthy dragons for purpose of farokméregetés and might contain an assistant calculating the likelihood of adventuring parties appearing at one of your Storages to get your riches.
 
 Further improvements might contain administration overview of guardians and traps assigned to specific storages.
