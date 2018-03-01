@@ -1,5 +1,7 @@
 package com.codecool;
 
+import java.security.acl.Owner;
+
 public class Hoard {
     private String name;
     private long value;
@@ -36,6 +38,10 @@ class Gems extends Hoard {
     public String getType() {
         return type;
     }
+
+    public String toString() {
+        return "Gem\t[Name: " + getName() + "\tvalue: " + Long.toString(getValue()) + "\tsize: " + Integer.toString(getSize()) + "\t type " + type;
+    }
 }
 
 
@@ -47,8 +53,12 @@ class Coins extends Hoard {
         this.material = material;
     }
 
-    public String material() {
+    public String getMaterial() {
         return material;
+    }
+
+    public String toString() {
+        return "Coins\t[Name: " + getName() + "\tvalue: " + Long.toString(getValue()) + "\tsize: " + Integer.toString(getSize()) + "\t made: " + material;
     }
 }
 
@@ -64,6 +74,10 @@ class CommonMagicItem extends Hoard {
     public String getDescription() {
         return description;
     }
+
+    public String toString() {
+        return "Common Magic Item\t[Name: " + getName() + "\tvalue: " + Long.toString(getValue()) + "\tsize: " + Integer.toString(getSize()) + "\t description " + description;
+    }
 }
 
 class UniqueItem extends Hoard {
@@ -73,7 +87,7 @@ class UniqueItem extends Hoard {
     public UniqueItem(String name, long value, int size, String description, String creator) {
         super(name, value, size);
         this.description = description;
-        this.owner = owner;
+        this.creator = creator;
     }
 
     public String getDescription() {
@@ -82,5 +96,9 @@ class UniqueItem extends Hoard {
 
     public String getCreator() {
         return creator;
+    }
+
+    public String toString() {
+        return "Unique Item\t[Name: " + getName() + "\tvalue: " + Long.toString(getValue()) + "\tsize: " + Integer.toString(getSize()) + "\t description " + description + "\t creator: " + creator;
     }
 }

@@ -1,43 +1,38 @@
 package com.codecool;
 
 import java.util.Scanner;
-import java.lang.Runtime;
-import java.util.List;
-import java.util.ArrayList;
 
 public class Main{
 
-    public static void Main(String args[]) {
-        private static Scanner scanner = new Scanner(System.in);
-        public List<Storage> = new ArrayList<>();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        HoardManager hm = new HoardManager();
 
-        System.out.println("Welcome to HoardManager 2000 for the modern dragon!")
+        System.out.println("Welcome to HoardManager 2000 for the modern dragon!");
 
-        while (true) {
-            Runtime.getRuntime().exec("cls");
-            
-            System.out.println("Please select an option:")
-            System.out.println("(C)reate new storage\n(V)iew storage stats\n(A)dd item to hoard\n(L)oad\n(S)ave\n(Q)uit")
+        while (true) {            
+            System.out.println("Please select an option:");
+            System.out.println("(C)reate new storage\n(V)iew storage stats\n(A)dd item to hoard\n(L)oad\n(S)ave\n(Q)uit");
 
-            String line = scanner.nextLine();
+            String line = sc.nextLine();
 
             if ((line.toLowerCase()).equals("q")) {
                 break;
             }else if ((line.toLowerCase()).equals("c")) {
-                createStorage();
+                hm.createStorage();
             }else if ((line.toLowerCase()).equals("v")) {
-                viewStorages();
+                hm.viewStorages();
             }else if ((line.toLowerCase()).equals("a")) {
-                addNewItem();
+                hm.addNewItem();
             }else if ((line.toLowerCase()).equals("l")) {
-                loadData();
+                hm.loadData();
             }else if ((line.toLowerCase()).equals("s")) {
-                saveData();
+                hm.saveData();
             }else {
+                System.out.print("That's not a valid option. Hit enter and try again!");
+                sc.nextLine();
                 continue;
             }
         }
     }
-
-    
 }
