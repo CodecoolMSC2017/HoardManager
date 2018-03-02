@@ -72,27 +72,23 @@ public class Storage {
         if (choice==1) {
             System.out.println("What type of gem is it?");
             String type = sc.nextLine();
-            contents.add(new Gems(name, value, size, type));
+            this.addToStorage(new Gems(name, value, size, type));
         }else if (choice == 2) {
-            System.out.println("What kind of gold is it?");
+            System.out.println("What kind of coins are they?");
             String type = sc.nextLine();
-            contents.add(new Coins(name, value, size, type));
+            this.addToStorage(new Coins(name, value, size, type));
         }else if (choice == 3 || choice == 4) {
             System.out.println("What abilities does this item have?");
             String description = sc.nextLine();
             if (choice == 3) {
-                contents.add(new CommonMagicItem(name, value, size, description));
+                this.addToStorage(new CommonMagicItem(name, value, size, description));
             }else if (choice == 4) {
                 System.out.println("Who was the creator of this item?");
                 String creator = sc.nextLine();
-                contents.add(new UniqueItem(name, value, size, description, creator));
+                this.addToStorage(new UniqueItem(name, value, size, description, creator));
             }
         }
 
-    }
-
-    public void addHoard(Hoard hoard) {
-        contents.add(hoard);
     }
 
     public String getName() {

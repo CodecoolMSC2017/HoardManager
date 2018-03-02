@@ -45,6 +45,7 @@ public class FileWriter {
                     String hoardType = "";
 
                     Element hoard = doc.createElement("hoard");
+                    storage.appendChild(hoard);
 
                     if (hoards instanceof Gems) {
                         hoardType = "gem";
@@ -62,8 +63,8 @@ public class FileWriter {
                     Element size = doc.createElement("value");
                     type.appendChild(doc.createTextNode(hoardType));
                     name.appendChild(doc.createTextNode(hoards.getName()));
-                    value.appendChild(doc.createTextNode(Long.toString(hoards.getValue())));
-                    size.appendChild(doc.createTextNode(Integer.toString(hoards.getSize())));
+                    value.appendChild(doc.createTextNode(Integer.toString(hoards.getSize())));
+                    size.appendChild(doc.createTextNode(Long.toString(hoards.getValue())));
                     hoard.appendChild(type);
                     hoard.appendChild(name);
                     hoard.appendChild(size);
@@ -119,7 +120,7 @@ public class FileWriter {
 
             document.getDocumentElement().normalize();
 
-            NodeList nList = document.getElementsByTagName("Storage");
+            NodeList nList = document.getElementsByTagName("storage");
 
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
@@ -132,12 +133,12 @@ public class FileWriter {
                             .parseInt(storageElement.getElementsByTagName("storageSize").item(0).getTextContent());
 
                     Storage st = new Storage(storageName, storageSize);
-
+                    storages.add(st);
                     NodeList hoards = storageElement.getElementsByTagName("hoard");
 
                     for (int i = 0; i < hoards.getLength(); i++) {
 
-                        Node hoard = nList.item(i);
+                        Node hoard = hoards.item(i);
 
                         if (hoard.getNodeType() == Node.ELEMENT_NODE) {
                             Element hoardElement = (Element) hoard;
@@ -150,28 +151,27 @@ public class FileWriter {
                             if (type.equals("gem")) {
                                 String gemtype = hoardElement.getElementsByTagName("gemtype").item(0).getTextContent();
                                 Gems gem = new Gems(name, value, size, gemtype);
-                                st.addHoard(gem);
+                                storages.get(temp).addToStorage(gem);
                             } else if (type.equals("coin")) {
                                 String material = hoardElement.getElementsByTagName("material").item(0)
                                         .getTextContent();
                                 Coins coin = new Coins(name, value, size, material);
-                                st.addHoard(coin);
+                                storages.get(temp).addToStorage(coin);
                             } else if (type.equals("common") || type.equals("unique")) {
                                 String description = hoardElement.getElementsByTagName("description").item(0)
                                         .getTextContent();
                                 if (type.equals("common")) {
                                     CommonMagicItem cm = new CommonMagicItem(name, value, size, description);
-                                    st.addHoard(cm);
+                                    storages.get(temp).addToStorage(cm);
                                 } else {
                                     String creator = hoardElement.getElementsByTagName("creator").item(0)
                                             .getTextContent();
                                     UniqueItem ui = new UniqueItem(name, value, size, description, creator);
-                                    st.addHoard(ui);
+                                    storages.get(temp).addToStorage(ui);
                                 }
                             }
                         }
                     }
-                    storages.add(st);
                 }
             }
             return storages;

@@ -19,13 +19,14 @@ public class NicePrinter {
         }
 
         System.out.println("Storage: " + storage.getName());
-        System.out.println("Current fame: " + storage.getFame() + "Available space: " + storage.getFame());
+        System.out.println("Current fame: " + storage.getFame() + "\tAvailable space: " + storage.getFreeSpace());
         System.out.println(adventure);
         System.out.println();
-        System.out.format("%15se%15s%15s%n", "Item Name", "Value", "Size");
+        System.out.format("%30s%15s%15s%n", "Item Name", "Value", "Size");
         for (Hoard row : storage.getContents()) {
-            System.out.format("%15s%15d%15d\n", row.getName(), row.getValue(), row.getSize());
+            System.out.format("%30s%15d%15d\n", row.getName(), row.getValue(), row.getSize());
         }
+        System.out.println("\n\n"); 
     }
 
     public void printTreasures() {
